@@ -129,5 +129,6 @@ JobHandler={{RegTaskName}}
 
 ## Start hello world cronjob
 1. click `Job Manmage` => `helloworld job` => `Operate` => `Start`
+![img.png](images/img-9.png)
 2. Now we see the logs from the program console
 ![img_8.png](images/img_8.png)
