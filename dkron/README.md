@@ -53,7 +53,31 @@ panic(err)
 ![img_1.png](images/img_1.png)
 
 2. Save http job
-3. Run go executor
+3. or use curl
+```
+curl 'http://localhost:8080/v1/jobs' \
+  -H 'accept: application/json' \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "name": "hellowordcurl",
+    "displayname": "hellowordcurl",
+    "timezone": "Europe/Berlin",
+    "schedule": "@every 10s",
+    "owner": "boice",
+    "owner_email": "datachaihaobo@gmail.com",
+    "concurrency": "allow",
+    "executor": "http",
+    "executor_config": {
+        "debug": "true",
+        "expectCode": "200",
+        "method": "GET",
+        "timeout": "30",
+        "url": "http://192.168.1.7:2531/hello-world"
+    }
+}' \
+  --compressed
+```
+4. Run go executor
 ```bash
 go run helloworld.go
 ```
